@@ -51,8 +51,38 @@ const createUser = async (req, res) => {
 	}
 };
 
+const updateUser = async (req, res) => {
+	// Get the id from the request
+	const id = req.params.id;
+	// Get the user from the request body
+	const user = req.body;
+
+	try {
+		// Check this is a valid ObjectId
+		if (!mongoose.isValidObjectId(id)) {
+			// Todo: format error response
+			res.status(404).send("ID is an invalid Object ID");
+			return;
+		}
+		// Update the user
+		const updatedUser = await usersService.updateUser(id, user);
+
+		// If there is no user with this id, send a 404
+		if (!updatedUser) {
+			res.status(404).send("No user with this ID");
+			return;
+		}
+
+		// Send the user
+		res.send(updatedUser);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+};
+
 module.exports = {
 	getUsers,
 	getUserById,
 	createUser,
+	updateUser,
 };

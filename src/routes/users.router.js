@@ -14,4 +14,8 @@ router.post("/", async (req, res) => {
 	usersController.createUser(req, res);
 });
 
+router.patch("/:id", async (req, res) => {
+	usersController.updateUser(req, res);
+});
+
 module.exports = router;

@@ -11,8 +11,13 @@ const createUser = async user => {
 	return await usersAccessLayer.createUser(user);
 };
 
+const updateUser = async (id, user) => {
+	return await usersAccessLayer.updateUser(id, user);
+};
+
 module.exports = {
 	getUsers,
 	createUser,
 	getUserById,
+	updateUser,
 };

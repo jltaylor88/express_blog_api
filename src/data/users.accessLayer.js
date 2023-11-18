@@ -13,8 +13,15 @@ const createUser = async user => {
 	return await u.save();
 };
 
+const updateUser = async (id, user) => {
+	return await User.findByIdAndUpdate(id, user, {
+		new: true,
+	});
+};
+
 module.exports = {
 	getUsers,
 	getUserById,
 	createUser,
+	updateUser,
 };
