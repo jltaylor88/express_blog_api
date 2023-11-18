@@ -10,6 +10,21 @@ const getUsers = async (_, res) => {
 	}
 };
 
+const createUser = async (req, res) => {
+	// Get the user from the request body
+	const user = req.body;
+
+	try {
+		// Create the user
+		const createdUser = await usersService.createUser(user);
+		// Send the user
+		res.send(createdUser);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+};
+
 module.exports = {
 	getUsers,
+	createUser,
 };

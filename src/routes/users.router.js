@@ -6,4 +6,8 @@ router.get("/", async (req, res) => {
 	usersController.getUsers(req, res);
 });
 
+router.post("/", async (req, res) => {
+	usersController.createUser(req, res);
+});
+
 module.exports = router;
