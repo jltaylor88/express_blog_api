@@ -27,7 +27,7 @@ class AbstractController {
 			console.log("HERE");
 			res.send(all);
 		} catch (error) {
-			res.status(500).send(error);
+			res.status(500).send(error.message);
 		}
 	}
 
@@ -40,7 +40,8 @@ class AbstractController {
 			this.handleEntityNotFound(byId);
 			res.send(byId);
 		} catch (error) {
-			res.status(500).send(error);
+			console.log("ERROR: ", error);
+			res.status(500).send(error.message);
 		}
 	}
 
@@ -51,7 +52,7 @@ class AbstractController {
 			const created = await this.service.create(body);
 			res.send(created);
 		} catch (error) {
-			res.status(500).send(error);
+			res.status(500).send(error.message);
 		}
 	}
 
@@ -65,7 +66,7 @@ class AbstractController {
 			this.handleEntityNotFound(updated);
 			res.send(updated);
 		} catch (error) {
-			res.status(500).send(error);
+			res.status(500).send(error.message);
 		}
 	}
 
@@ -78,7 +79,7 @@ class AbstractController {
 			this.handleEntityNotFound(deleted);
 			res.send(deleted);
 		} catch (error) {
-			res.status(500).send(error);
+			res.status(500).send(error.message);
 		}
 	}
 }

@@ -1,28 +1,13 @@
 const usersAccessLayer = require("../data/users.accessLayer");
-const getUsers = async () => {
-	return await usersAccessLayer.getAll();
-};
 
-const getUserById = async id => {
-	return await usersAccessLayer.getById(id);
-};
+const AbstractService = require("./abstractService");
 
-const createUser = async user => {
-	return await usersAccessLayer.create(user);
-};
+class UsersService extends AbstractService {
+	constructor(accessLayer) {
+		super(accessLayer);
+	}
+}
 
-const updateUser = async (id, user) => {
-	return await usersAccessLayer.update(id, user);
-};
+const usersService = new UsersService(usersAccessLayer);
 
-const deleteUser = async id => {
-	return await usersAccessLayer.delete(id);
-};
-
-module.exports = {
-	getUsers,
-	createUser,
-	getUserById,
-	updateUser,
-	deleteUser,
-};
+module.exports = usersService;
