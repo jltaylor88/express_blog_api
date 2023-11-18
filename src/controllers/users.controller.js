@@ -36,6 +36,7 @@ const getUserById = async (req, res) => {
 	}
 };
 
+// TODO: include validation for non-unique email and username
 const createUser = async (req, res) => {
 	// Get the user from the request body
 	const user = req.body;
