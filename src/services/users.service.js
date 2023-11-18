@@ -15,9 +15,14 @@ const updateUser = async (id, user) => {
 	return await usersAccessLayer.updateUser(id, user);
 };
 
+const deleteUser = async id => {
+	return await usersAccessLayer.deleteUser(id);
+};
+
 module.exports = {
 	getUsers,
 	createUser,
 	getUserById,
 	updateUser,
+	deleteUser,
 };

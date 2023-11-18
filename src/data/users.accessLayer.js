@@ -19,9 +19,14 @@ const updateUser = async (id, user) => {
 	});
 };
 
+const deleteUser = async id => {
+	return await User.findByIdAndDelete(id);
+};
+
 module.exports = {
 	getUsers,
 	getUserById,
 	createUser,
 	updateUser,
+	deleteUser,
 };

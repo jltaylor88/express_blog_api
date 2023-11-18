@@ -80,9 +80,36 @@ const updateUser = async (req, res) => {
 	}
 };
 
+const deleteUser = async (req, res) => {
+	// Get the id from the request
+	const id = req.params.id;
+
+	try {
+		// Check this is a valid ObjectId
+		if (!mongoose.isValidObjectId(id)) {
+			res.status(404).send("ID is an invalid Object ID");
+			return;
+		}
+		// Delete the user
+		const deletedUser = await usersService.deleteUser(id);
+
+		// If there is no user with this id, send a 404
+		if (!deletedUser) {
+			res.status(404).send("No user with this ID");
+			return;
+		}
+
+		// Send the user
+		res.send(deletedUser);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+};
+
 module.exports = {
 	getUsers,
 	getUserById,
 	createUser,
 	updateUser,
+	deleteUser,
 };

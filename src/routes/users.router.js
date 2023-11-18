@@ -18,4 +18,8 @@ router.patch("/:id", async (req, res) => {
 	usersController.updateUser(req, res);
 });
 
+router.delete("/:id", async (req, res) => {
+	usersController.deleteUser(req, res);
+});
+
 module.exports = router;
