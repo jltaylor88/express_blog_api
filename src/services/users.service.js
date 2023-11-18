@@ -1,22 +1,22 @@
 const usersAccessLayer = require("../data/users.accessLayer");
 const getUsers = async () => {
-	return await usersAccessLayer.getUsers();
+	return await usersAccessLayer.getAll();
 };
 
 const getUserById = async id => {
-	return await usersAccessLayer.getUserById(id);
+	return await usersAccessLayer.getById(id);
 };
 
 const createUser = async user => {
-	return await usersAccessLayer.createUser(user);
+	return await usersAccessLayer.create(user);
 };
 
 const updateUser = async (id, user) => {
-	return await usersAccessLayer.updateUser(id, user);
+	return await usersAccessLayer.update(id, user);
 };
 
 const deleteUser = async id => {
-	return await usersAccessLayer.deleteUser(id);
+	return await usersAccessLayer.delete(id);
 };
 
 module.exports = {
