@@ -1,5 +1,6 @@
 # Ignore node_modules
 node_modules
 
-# Ignore .env files
+# Ignore .env files but allow .env.example
 .env*
+!.env.example
