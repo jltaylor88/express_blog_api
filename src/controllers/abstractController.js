@@ -24,7 +24,7 @@ class AbstractController {
 	async getAll(_, res) {
 		try {
 			const all = await this.service.getAll();
-			console.log("HERE");
+
 			res.send(all);
 		} catch (error) {
 			res.status(500).send(error.message);
@@ -40,7 +40,6 @@ class AbstractController {
 			this.handleEntityNotFound(byId);
 			res.send(byId);
 		} catch (error) {
-			console.log("ERROR: ", error);
 			res.status(500).send(error.message);
 		}
 	}
