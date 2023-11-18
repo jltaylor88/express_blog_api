@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 // Todo: create custom error class that accepts a status code and a message
 // so can handle errors such as those thrown by valudateId in a more consistent way
 // and not just give a 500 error
@@ -22,6 +24,7 @@ class AbstractController {
 	async getAll(_, res) {
 		try {
 			const all = await this.service.getAll();
+			console.log("HERE");
 			res.send(all);
 		} catch (error) {
 			res.status(500).send(error);

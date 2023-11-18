@@ -1,4 +1,3 @@
-const { default: mongoose } = require("mongoose");
 const usersService = require("../services/users.service");
 
 const AbstractController = require("./abstractController");
