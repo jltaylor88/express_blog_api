@@ -2,6 +2,12 @@ const User = require("../models/users.model");
 
 const AbstractAccessLayer = require("./abstractAccessLayer");
 
-const usersAccessLayer = new AbstractAccessLayer(User);
+class UsersAccessLayer extends AbstractAccessLayer {
+	constructor(model) {
+		super(model);
+	}
+}
+
+const usersAccessLayer = new UsersAccessLayer(User);
 
 module.exports = usersAccessLayer;
